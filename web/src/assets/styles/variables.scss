@@ -1,0 +1,135 @@
+/* 设计系统：借鉴 qwerty-learner 的「简洁 / 清新 / 游戏化」氛围 */
+$primary: #4f46e5;        // 靛蓝主色
+$primary-soft: #e6e5ff;   // 主色浅底
+$primary-dark: #4338ca;
+$accent: #22c55e;         // 成功/达成绿
+$warn: #f59e0b;           // 连续打卡橙
+$danger: #ef4444;
+
+$bg: #f7f8fc;             // 页面底色
+$card: #ffffff;
+$border: #eef1f6;
+$border-accent: #c7d2fe;
+
+$text: #1f2430;
+$text-secondary: #8a93a6;
+$text-muted: #9aa3b2;
+
+$radius: 14px;
+$shadow: 0 2px 8px rgba(30, 41, 59, 0.05);
+$shadow-hover: 0 12px 28px rgba(79, 70, 229, 0.12);
+
+:root {
+  /* 覆盖 Element Plus 主题色 */
+  --el-color-primary: #{$primary};
+  --el-color-primary-light-3: #6b66e8;
+  --el-color-primary-light-5: #9490ef;
+  --el-color-primary-light-7: #bdbaf6;
+  --el-color-primary-light-8: #d3d1fa;
+  --el-color-primary-light-9: #e6e5ff;
+  --el-color-primary-dark-2: #4338ca;
+
+  --el-border-radius-base: 10px;
+  --el-border-radius-round: 999px;
+  --el-text-color-primary: #{$text};
+  --el-text-color-secondary: #{$text-secondary};
+  --el-bg-color-page: #{$bg};
+
+  /* 业务自定义变量（供组件通过 var(--app-*) 引用，深色模式整体覆盖） */
+  --app-primary: #{$primary};
+  --app-primary-soft: #{$primary-soft};
+  --app-accent: #{$accent};
+  --app-warn: #{$warn};
+  --app-bg: #{$bg};
+  --app-card: #{$card};
+  --app-border: #{$border};
+  --app-border-accent: #{$border-accent};
+  --app-text: #{$text};
+  --app-text-secondary: #{$text-secondary};
+  --app-text-muted: #{$text-muted};
+  --app-fill-soft: #f4f5ff;          /* 主色浅底填充（标签 / 提示 / 图标底） */
+  --app-fill-soft-border: #e6e5ff;   /* 主色浅底描边 */
+  --app-primary-bg: #eef0ff;         /* 激活/选中渐变起 */
+  --app-primary-bg2: #e9e7ff;        /* 激活/选中渐变止 */
+  --app-row-hover: #f4f5ff;          /* 悬停填充 */
+  --app-header-bg: rgba(255, 255, 255, 0.82);
+}
+
+/* ================================================================
+   深色模式：给 <html> 加 class="dark"，覆盖 Element Plus 与业务色板。
+   ================================================================ */
+html.dark {
+  /* Element Plus 底色 / 文字 / 边框 */
+  --el-bg-color: #262a3a;
+  --el-bg-color-page: #1b1e2b;
+  --el-bg-color-overlay: #2a2f40;
+  --el-fill-color: #292e3e;
+  --el-fill-color-light: #232838;
+  --el-fill-color-lighter: #202536;
+  --el-fill-color-dark: #2e3446;
+  --el-fill-color-darker: #33394c;
+  --el-fill-color-blank: #262a3a;
+  --el-text-color-primary: #e6e8f0;
+  --el-text-color-regular: #c6cad6;
+  --el-text-color-secondary: #9aa3b8;
+  --el-text-color-placeholder: #7b8498;
+  --el-text-color-disabled: #565e70;
+  --el-border-color: #3a4154;
+  --el-border-color-light: #333a4c;
+  --el-border-color-lighter: #2c3243;
+  --el-border-color-extra-light: #262c3b;
+  --el-mask-color: rgba(0, 0, 0, 0.6);
+
+  /* 深色下主色提亮 + 浅底转暗 */
+  --el-color-primary: #818cf8;
+  --el-color-primary-light-3: #a5b4fc;
+  --el-color-primary-light-5: #6977e6;
+  --el-color-primary-light-7: #3a4166;
+  --el-color-primary-light-8: #33395c;
+  --el-color-primary-light-9: #2f3352;
+  --el-color-primary-dark-2: #6d7cf7;
+
+  /* 业务自定义变量（深色覆盖） */
+  --app-primary: #818cf8;
+  --app-primary-soft: #2f3352;
+  --app-bg: #1b1e2b;
+  --app-card: #262a3a;
+  --app-border: #333a4d;
+  --app-border-accent: #3a4166;
+  --app-text: #e6e8f0;
+  --app-text-secondary: #9aa3b8;
+  --app-text-muted: #7b8498;
+  --app-fill-soft: #2b3050;
+  --app-fill-soft-border: #3a4166;
+  --app-primary-bg: #2f3352;
+  --app-primary-bg2: #2b2f4a;
+  --app-row-hover: #2b3050;
+  --app-header-bg: rgba(20, 23, 36, 0.82);
+  /* 键盘拼写专用（深色） */
+  --app-ok: #34d399;
+  --app-ok-bg: #12281d;
+  --app-warn-bg: #2c2312;
+  --app-cur-bg: #2f3352;
+  --app-cursor: #818cf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f6f7ff 0%, #f7f8fc 220px);
+  background-color: $bg;
+  color: $text;
+  font-family: 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 深色模式下的页面底色渐变同步切换 */
+html.dark body {
+  background: linear-gradient(180deg, #202536 0%, #1b1e2b 220px);
+  background-color: #1b1e2b;
+  color: #e6e8f0;
+}
