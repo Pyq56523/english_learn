@@ -59,8 +59,6 @@ def root():
     return {"app": APP_NAME, "status": "running"}
 
     
-def root():
-    return {"app": APP_NAME, "status": "running"}
 
 
 def main() -> None:
